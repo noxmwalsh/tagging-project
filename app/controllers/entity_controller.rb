@@ -16,6 +16,14 @@ class EntityController < ApplicationController
     head :no_content
   end
 
+  def tag_entity_stats
+    @entity = Entity.where(identifier: params[:identifier]).first
+    if @entity.tag_list.empty?
+      render json: { errors: { untagged_entity_error: "Entity is untagged" } }, status: 422
+    end
+    render json: @entity, serializer: EntityStatsSerializer
+  end
+
   private
 
   def entity_params
