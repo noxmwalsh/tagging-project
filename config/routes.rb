@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :entity, only: [:create]
+  resources :entity, only: [:create, :show]
 
 
 
