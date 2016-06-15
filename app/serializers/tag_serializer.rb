@@ -1,6 +1,3 @@
-class EntitySerializer < ActiveModel::Serializer
-  attributes :category, :identifier
-
-  has_many :tags
-
+class TagSerializer < ActiveModel::Serializer
+  attributes :id, :name, :count
 end
