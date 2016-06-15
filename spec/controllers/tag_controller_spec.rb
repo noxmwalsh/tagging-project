@@ -18,7 +18,7 @@ RSpec.describe TagsController, type: :controller do
         name_exists = expected_tags.include? tag["name"]
         expect(name_exists).to be true
         expect(tag["count"].present?).to be true
-        expect(tag["count"].to_i).to be_a_kind_of Integer
+        expect(tag["count"].to_i).to eq Tag.find(tag["id"]).taggings_count
       end
     end
   end
