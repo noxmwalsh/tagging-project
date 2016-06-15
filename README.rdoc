@@ -1,28 +1,13 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Greetings!
 
-Things you may want to cover:
+There's a lot to cover that could use more dialogue (feel free to chat with me for more detail), but the high points:
 
-* Ruby version
+1. I changed the schema for entities a bit:  :entity_type => "category", :entity_identifier => "identifier", while having an id that has a primary key.  My reasoning for this, besides the whole repeaing of what the model is + attribute, type is a reserved word in Rails for polymorphic assoications. I personally feel that using category is better based of off past experience.  Having a separate identifier, (assuming it's indexed), is preferable in instances where the identifier can be rather expansive (the example show numbers, some with dashs etc.).  By keeping the primary key in a traditional integer incrementing style, it makes migrations way easier in the long run.
+2. I decided that some of the routes provided in the example aren't the most optimum or RESTful in practice, so much of it was changed to where I thought it made sense.  For example, /tags/:entity_type/:entity_identifier is weird to me since the show of that entity has nothing to do with tags in such a state.  It might make more sense if it was to fetch entities related to a particular tag... maybe.
+3. All controller points have specs on them.  I skipped the model test due to time constraints (the two hour limit), but I would cover that too if I had time.
+4. The requirements were a bit vague in certain places, so I improvised where appropriate.
+5. I'm eager for feedback =D.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Questions?  Please ask!
