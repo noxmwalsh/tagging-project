@@ -10,6 +10,7 @@ gem 'active_model_serializers', '0.9.3'
 gem 'acts-as-taggable-on', '~> 3.4'
 
 group :development, :test do
+  gem 'capistrano'
   gem 'capistrano-rails'
   gem 'byebug'
   gem 'pry-byebug'

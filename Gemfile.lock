@@ -196,6 +196,7 @@ DEPENDENCIES
   acts-as-taggable-on (~> 3.4)
   better_errors
   byebug
+  capistrano
   capistrano-rails
   database_cleaner
   factory_girl_rails
