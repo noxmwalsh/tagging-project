@@ -6,7 +6,7 @@ class EntityController < ApplicationController
   end
 
   def show
-    @entity = Entity.find(params[:id])
+    @entity = Entity.find_by_identifier(params[:identifier])
     render json: @entity, serializer: EntitySerializer
   end
 

@@ -30,7 +30,7 @@ RSpec.describe EntityController, type: :controller do
 
     it "returns a JSON response with the entity" do
 
-      get :show, id: entity.to_param
+      get :show, identifier: entity.identifier
 
       expect(response).to have_http_status(:success)
       json = JSON.parse(response.body)["entity"]
