@@ -1,0 +1,17 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: lemur
+  pool: 5
+
+development:
+  <<: *default
+  database: tagging_system_development
+
+test:
+  <<: *default
+  database: tagging_system_test
+
+production:
+  <<: *default
+  database: tagging_system
