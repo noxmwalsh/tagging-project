@@ -43,5 +43,21 @@ RSpec.describe EntityController, type: :controller do
     end
   end
 
+  describe "DELETE #destroy" do
+    let!(:entity) { FactoryGirl.create :entity_with_tags }
+    let!(:non_deleted_entity) { FactoryGirl.create :entity_with_tags }
 
+    it "deletes an entity and all of its associated tags" do
+
+      expected_tag_count = Tag.all.map(&:taggings_count).sum - entity.tag_list.count
+
+      delete :destroy, { identifier: entity.identifier }
+
+      expect(response).to have_http_status(:no_content)
+      expect(Entity.find_by_identifier(entity.identifier)).to be nil
+      new_count = Tag.all.map(&:taggings_count).sum
+      expect(new_count).to be expected_tag_count
+    end
+
+  end
 end

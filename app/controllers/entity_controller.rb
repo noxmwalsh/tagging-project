@@ -10,6 +10,12 @@ class EntityController < ApplicationController
     render json: @entity, serializer: EntitySerializer
   end
 
+  def destroy
+    @entity = Entity.find_by_identifier(params[:identifier])
+    @entity.destroy
+    head :no_content
+  end
+
   private
 
   def entity_params
