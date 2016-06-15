@@ -1,6 +1,8 @@
 class EntityController < ApplicationController
   def create
     @entity = Entity.create! entity_params
+    @entity.create_tags tag_params
+    render json: @entity, serializer: EntitySerializer
   end
 
   private
