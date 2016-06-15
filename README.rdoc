@@ -11,3 +11,16 @@ There's a lot to cover that could use more dialogue (feel free to chat with me f
 5. I'm eager for feedback =D.
 
 Questions?  Please ask!
+
+Update:
+
+I had a few more thoughts, mainly regarding things I would change if I had time:
+
+1. When doing a search for an entity, it should be checking with both entity category AND identifiers since identifiers can be the same among different categories of entities
+2. Along the same lines, there probably should be a validation of uniqueness based off the pair of keys.  For example:
+
+  validates_uniqueness_of :identifier, :scope => [:category]
+
+If the entity categories were tied to Rails models, considering using a polymorphic association would be in order
+
+3. Indexing entity identifier would be nice too.
