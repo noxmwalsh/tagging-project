@@ -5,6 +5,11 @@ class EntityController < ApplicationController
     render json: @entity, serializer: EntitySerializer
   end
 
+  def show
+    @entity = Entity.find(params[:id])
+    render json: @entity, serializer: EntitySerializer
+  end
+
   private
 
   def entity_params
